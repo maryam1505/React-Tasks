@@ -64,15 +64,19 @@ const EditUser = () => {
   //   formik Validation
   const formik = useFormik({
     initialValues,
-    enableReinitialize: true, // Reinitialize form with new values
+    enableReinitialize: true,
     validationSchema: Yup.object({
       profilePic: Yup.mixed().test(
         "fileType",
         "Unsupported file format",
-        (value) =>
-          !value ||
-          (value &&
-            ["image/jpeg", "image/png", "image/gif"].includes(value.type))
+        (value) => {
+          if (value && value instanceof File) {
+            return ["image/jpeg", "image/png", "image/gif"].includes(
+              value.type
+            );
+          }
+          return true; 
+        }
       ),
       firstName: Yup.string().required("First name is required"),
       lastName: Yup.string().required("Last name is required"),
@@ -92,7 +96,7 @@ const EditUser = () => {
       if (values.profilePic instanceof File) {
         formData.append("image", values.profilePic);
       } else {
-        formData.append("image", profilePic);
+        formData.append("existingImage", values.profilePic); 
       }
       formData.append("fname", values.firstName);
       formData.append("lname", values.lastName);
@@ -105,9 +109,9 @@ const EditUser = () => {
       formData.append("city", values.city);
       formData.append("address", values.address);
 
-      for (const [key, value] of formData.entries()) {
-        console.log(`${key}:`, value);
-      }
+      // for (const [key, value] of formData.entries()) {
+      //   console.log(`${key}:`, value);
+      // }
 
       try {
         const response = await axios.put(
