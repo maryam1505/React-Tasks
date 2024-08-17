@@ -139,10 +139,10 @@ const UserList = () => {
                   <td className="px-6 py-4">
                     <div className="flex gap-2 font-medium hover:underline">
                       <Link to={`/edit_user/${user.id}`}>
-                        <FaEdit className="text-blue-600 dark:text-blue-500 " />
+                        <FaEdit className="text-blue-600 dark:text-blue-500 cursor-pointer" />
                       </Link>
                       <FaTrash
-                        className="text-red-600 dark:text-red-500"
+                        className="text-red-600 dark:text-red-500 cursor-pointer"
                         onClick={() => confirmDelete(user.id)}
                       />
                     </div>
