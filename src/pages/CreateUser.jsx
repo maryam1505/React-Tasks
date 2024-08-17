@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateUser = () => {
+  const navigate = useNavigate();
   /* Form Validation using Formik and Yup */
   const [profilePic, setProfilePic] = useState(null);
 
@@ -46,7 +48,7 @@ const CreateUser = () => {
       address: Yup.string().required("Address is required"),
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
-      // console.log("Form values before creating FormData:", values); 
+      // console.log("Form values before creating FormData:", values);
 
       const formData = new FormData();
       formData.append("image", values.profilePic);
@@ -68,7 +70,7 @@ const CreateUser = () => {
       try {
         const response = await axios.post(
           "http://localhost:5001/users/create",
-          formData,
+          formData
         );
         console.log("User created successfully:", response.data);
         alert("User created successfully!");
@@ -79,6 +81,7 @@ const CreateUser = () => {
         alert("Failed to create user.");
       } finally {
         setSubmitting(false);
+        navigate("/");
       }
     },
   });
@@ -104,7 +107,11 @@ const CreateUser = () => {
           <h1 className="text-2xl font-bold py-6">Create New User</h1>
         </div>
 
-        <form className="mx-auto mb-4" onSubmit={formik.handleSubmit} encType="multipart/form-data">
+        <form
+          className="mx-auto mb-4"
+          onSubmit={formik.handleSubmit}
+          encType="multipart/form-data"
+        >
           {/* Profile Pic */}
           <div className="flex w-full justify-center items-center mb-5">
             <div className="mt-2 flex items-center gap-x-3 flex-col justify-center">
@@ -411,6 +418,7 @@ const CreateUser = () => {
               ) : null}
             </div>
           </div>
+
           {/* Submit Button */}
           <div className="text-center">
             <button

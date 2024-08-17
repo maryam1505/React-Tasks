@@ -8,6 +8,11 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const formatDate = (date) => {
+    const d = new Date(date);
+    return d.toISOString().split("T")[0];
+  };
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -22,6 +27,21 @@ const UserList = () => {
 
     fetchUsers();
   }, []);
+
+  const deleteUser = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5001/users/delete/${id}`);
+      setUsers(users.filter(user => user.id !== id));
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
+  const confirmDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      deleteUser(id);
+    }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -109,7 +129,7 @@ const UserList = () => {
                   </td>
                   <td className="px-6 py-4">{user.lname}</td>
                   <td className="px-6 py-4">{user.guardian}</td>
-                  <td className="px-6 py-4">{user.dob}</td>
+                  <td className="px-6 py-4">{formatDate(user.dob)}</td>
                   <td className="px-6 py-4">{user.age}</td>
                   <td className="px-6 py-4">{user.designation}</td>
                   <td className="px-6 py-4">{user.department}</td>
@@ -117,15 +137,15 @@ const UserList = () => {
                   <td className="px-6 py-4">{user.city}</td>
                   <td className="px-6 py-4">{user.address}</td>
                   <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <div className="flex gap-2">
-                        <Link to={`/edit_user/${user.id}`}><FaEdit /></Link> 
-                        <FaTrash className="text-red-600" />
-                      </div>
-                    </a>
+                    <div className="flex gap-2 font-medium hover:underline">
+                      <Link to={`/edit_user/${user.id}`}>
+                        <FaEdit className="text-blue-600 dark:text-blue-500 " />
+                      </Link>
+                      <FaTrash
+                        className="text-red-600 dark:text-red-500"
+                        onClick={() => confirmDelete(user.id)}
+                      />
+                    </div>
                   </td>
                 </tr>
               ))}
