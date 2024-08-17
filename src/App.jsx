@@ -5,6 +5,7 @@ import CreateUser from "./pages/CreateUser";
 import UserList from "./pages/UserList";
 import ManageRoles from "./pages/ManageRoles";
 import CreateRole from "./pages/CreateRole";
+import EditUser from "./pages/EditUser";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<UserList/>}/>
         <Route path="/create_user" element={<CreateUser/>} />
+        <Route path="/edit_user/:id" element={<EditUser/>} />
         <Route path="/manage_roles" element={<ManageRoles/>} />
         <Route path="/create_role" element={<CreateRole/>} />
       </Routes>
