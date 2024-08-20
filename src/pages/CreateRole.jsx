@@ -41,7 +41,7 @@ const CreateRole = () => {
 
   return (
     <div className="w-full">
-      <div className="min-w-36 mx-auto max-w-[40rem] my-9 bg-blue-950 bg-opacity-5 rounded-lg py-3 px-10">
+      <div className="min-w-36 mx-auto max-w-[40rem] my-9 bg-slate-900 bg-opacity-5 dark:bg-opacity-100 rounded-lg py-3 px-10">
         <div className="flex justify-center items-center">
           <h1 className="text-2xl font-bold py-6">Create New Role</h1>
         </div>
@@ -64,7 +64,7 @@ const CreateRole = () => {
                     type="text"
                     name="title"
                     placeholder="Admin"
-                    className={`bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                    className={`bg-gray-50 border text-slate-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                       errors.title && touched.title ? "border-red-500" : ""
                     }`}
                   />
@@ -78,7 +78,7 @@ const CreateRole = () => {
               <div className="mb-5">
                 <label
                   htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Description
                 </label>
@@ -86,7 +86,7 @@ const CreateRole = () => {
                   as="textarea"
                   name="description"
                   placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Est qui odit suscipit."
-                  className={`bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-32 resize-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                  className={`bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 h-32 resize-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     errors.description && touched.description
                       ? "border-red-500"
                       : ""
@@ -100,7 +100,7 @@ const CreateRole = () => {
               </div>
               <button
                 type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-slate-900 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-slate-950 dark:hover:bg-slate-900 dark:focus:ring-slate-800"
               >
                 Create Role
               </button>

@@ -46,13 +46,13 @@ const ManageRoles = () => {
 
   return (
     <div className="w-full">
-      <div className="mx-20 my-9 bg-blue-950 bg-opacity-5 rounded-lg py-3 px-5">
+      <div className="mx-20 my-9 bg-slate-900 bg-opacity-5 dark:bg-opacity-100 rounded-lg py-3 px-5">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold py-3">User Roles</h1>
+          <h1 className="text-2xl font-bold py-3">Manage Roles</h1>
           <Link to={"/create_role"}>
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-800 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-900 flex items-center gap-2"
+              className="text-white bg-slate-950 hover:bg-slate-900 focus:ring-4 focus:ring-slate-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-slate-950 dark:hover:bg-slate-700 focus:outline-none dark:focus:ring-slate-900 flex items-center gap-2"
             >
               <FaPlus /> New Role
             </button>

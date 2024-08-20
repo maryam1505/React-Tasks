@@ -51,19 +51,19 @@ const UserList = () => {
 
   return (
     <div className="w-full">
-      <div className="mx-36 my-9 bg-blue-950 bg-opacity-5 rounded-lg py-3 px-5">
+      <div className="my-9 bg-slate-900 bg-opacity-5 rounded-lg py-3 px-5 dark:bg-opacity-100">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold py-3">User List</h1>
+          <h1 className="text-2xl font-bold py-3">Manage Users</h1>
           <Link to={"/create_user"}>
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-800 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-900 flex items-center gap-2"
+              className="text-white bg-slate-800 hover:bg-slate-900 focus:ring-4 focus:ring-slate-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-slate-950 dark:hover:bg-slate-800 focus:outline-none dark:focus:ring-slate-900 flex items-center gap-2"
             >
               <FaPlus /> New User
             </button>
           </Link>
         </div>
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg max-w-[77rem] dark:scrollbar-thin dark:scrollbar-webkit">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>

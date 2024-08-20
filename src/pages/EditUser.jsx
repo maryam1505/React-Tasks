@@ -151,7 +151,7 @@ const EditUser = () => {
   };
   return (
     <div className="w-full">
-      <div className="min-w-36 mx-auto max-w-[40rem] my-9 bg-blue-950 bg-opacity-5 rounded-lg py-3 px-10">
+      <div className="min-w-36 mx-auto max-w-[40rem] my-9 bg-slate-900 bg-opacity-5 dark:bg-opacity-100 rounded-lg py-3 px-10">
         <div className="flex justify-center items-center">
           <h1 className="text-2xl font-bold py-6">Edit User</h1>
         </div>
@@ -172,7 +172,7 @@ const EditUser = () => {
                 />
               ) : (
                 <svg
-                  className="w-36 h-36 text-gray-300"
+                  className="w-36 h-36 text-slate-300"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   aria-hidden="true"
@@ -193,7 +193,7 @@ const EditUser = () => {
               />
               <button
                 type="button"
-                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 dark:bg-gray-500 dark:ring-gray-600 dark:hover:bg-gray-600"
                 onClick={() => document.getElementById("profilePic").click()}
               >
                 Change
@@ -212,7 +212,7 @@ const EditUser = () => {
             <div>
               <label
                 htmlFor="firstName"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
               >
                 First Name
               </label>
@@ -220,10 +220,10 @@ const EditUser = () => {
                 id="firstName"
                 type="text"
                 placeholder="Ayesha"
-                className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                   formik.touched.firstName && formik.errors.firstName
                     ? "border-red-500"
-                    : "border-gray-300"
+                    : "border-slate-300"
                 }`}
                 {...formik.getFieldProps("firstName")}
               />
@@ -236,7 +236,7 @@ const EditUser = () => {
             <div>
               <label
                 htmlFor="lastName"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
               >
                 Last Name
               </label>
@@ -244,10 +244,10 @@ const EditUser = () => {
                 id="lastName"
                 type="text"
                 placeholder="Maryam"
-                className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                   formik.touched.lastName && formik.errors.lastName
                     ? "border-red-500"
-                    : "border-gray-300"
+                    : "border-slate-300"
                 }`}
                 {...formik.getFieldProps("lastName")}
               />
@@ -260,15 +260,15 @@ const EditUser = () => {
           </div>
 
           {/* Personal Info */}
-          <div className="bg-blue-900 bg-opacity-5 rounded-lg p-2 mb-5">
-            <p className="text-gray-400 text-sm mb-3">Personal Info</p>
+          <div className="bg-slate-900 bg-opacity-5 rounded-lg p-2 mb-5">
+            <p className="text-slate-400 text-sm mb-3">Personal Info</p>
             <div className="mb-5">
               <label
                 htmlFor="guardian"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
               >
                 Guardian Name{" "}
-                <span className="text-gray-400 font-light">
+                <span className="text-slate-400 font-light">
                   (Husband/Father)
                 </span>
               </label>
@@ -276,10 +276,10 @@ const EditUser = () => {
                 id="guardian"
                 type="text"
                 placeholder="Guardian Name"
-                className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                   formik.touched.guardian && formik.errors.guardian
                     ? "border-red-500"
-                    : "border-gray-300"
+                    : "border-slate-300"
                 }`}
                 {...formik.getFieldProps("guardian")}
               />
@@ -293,7 +293,7 @@ const EditUser = () => {
               <div>
                 <label
                   htmlFor="age"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Age
                 </label>
@@ -301,10 +301,10 @@ const EditUser = () => {
                   id="age"
                   type="number"
                   placeholder="21"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.age && formik.errors.age
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("age")}
                 />
@@ -317,17 +317,17 @@ const EditUser = () => {
               <div>
                 <label
                   htmlFor="dob"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Date of birth
                 </label>
                 <input
                   id="dob"
                   type="date"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.dob && formik.errors.dob
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("dob")}
                 />
@@ -338,11 +338,11 @@ const EditUser = () => {
                 ) : null}
               </div>
             </div>
-            <div className="mb-5 grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-3">
               <div>
                 <label
                   htmlFor="fname"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Designation
                 </label>
@@ -350,10 +350,10 @@ const EditUser = () => {
                   id="designation"
                   type="text"
                   placeholder="Software Engineer"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.designation && formik.errors.designation
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("designation")}
                 />
@@ -366,7 +366,7 @@ const EditUser = () => {
               <div>
                 <label
                   htmlFor="lname"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Department
                 </label>
@@ -374,10 +374,10 @@ const EditUser = () => {
                   id="department"
                   type="text"
                   placeholder="IT"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.department && formik.errors.department
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("department")}
                 />
@@ -391,13 +391,13 @@ const EditUser = () => {
           </div>
 
           {/* Location */}
-          <div className="bg-blue-900 bg-opacity-5 rounded-lg p-2 mb-5">
-            <p className="text-gray-400 text-sm mb-3">Location</p>
+          <div className="bg-slate-900 bg-opacity-5 rounded-lg p-2 mb-5">
+            <p className="text-slate-400 text-sm mb-3">Location</p>
             <div className="mb-2 grid grid-cols-2 gap-3">
               <div>
                 <label
                   htmlFor="country"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   Country
                 </label>
@@ -405,10 +405,10 @@ const EditUser = () => {
                   id="country"
                   type="text"
                   placeholder="Pakistan"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.country && formik.errors.country
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("country")}
                 />
@@ -421,7 +421,7 @@ const EditUser = () => {
               <div>
                 <label
                   htmlFor="city"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
                 >
                   City
                 </label>
@@ -429,10 +429,10 @@ const EditUser = () => {
                   id="city"
                   type="text"
                   placeholder="Multan"
-                  className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+                  className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                     formik.touched.city && formik.errors.city
                       ? "border-red-500"
-                      : "border-gray-300"
+                      : "border-slate-300"
                   }`}
                   {...formik.getFieldProps("city")}
                 />
@@ -446,17 +446,17 @@ const EditUser = () => {
             <div className="">
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-slate-900 dark:text-white"
               >
                 Address
               </label>
               <textarea
                 id="address"
                 placeholder="Address"
-                className={`bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 resize-none ${
+                className={`bg-slate-50 border text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 resize-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
                   formik.touched.address && formik.errors.address
                     ? "border-red-500"
-                    : "border-gray-300"
+                    : "border-slate-300"
                 }`}
                 {...formik.getFieldProps("address")}
               />
@@ -472,7 +472,7 @@ const EditUser = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              className="text-white bg-slate-950 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             >
               Update User
             </button>
