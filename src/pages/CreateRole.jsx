@@ -19,20 +19,24 @@ const CreateRole = () => {
   const handleSubmit = async (values) => {
     console.log("Submitting values:", values);
     try {
-      const response = await axios.post('http://localhost:5001/create_role', values, {
-        headers: {
-          'Content-Type': 'application/json', 
-        },
-      });
-      console.log('Response:', response.data);
+      const response = await axios.post(
+        "http://localhost:5001/create_role",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response:", response.data);
       alert("Role created successfully!");
     } catch (error) {
       if (error.response) {
-        console.error('Response Error:', error.response.data);
+        console.error("Response Error:", error.response.data);
       } else if (error.request) {
-        console.error('Request Error:', error.request);
+        console.error("Request Error:", error.request);
       } else {
-        console.error('Error:', error.message);
+        console.error("Error:", error.message);
       }
     } finally {
       navigate("/manage_roles");
@@ -87,9 +91,9 @@ const CreateRole = () => {
                   name="description"
                   placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Est qui odit suscipit."
                   className={`bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-slate-500 focus:border-slate-500 block w-full p-2.5 h-32 resize-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 ${
-                    errors.description && touched.description
-                      ? "border-red-500"
-                      : ""
+                    (errors.description &&
+                    touched.description) &&
+                    "border-red-500"
                   }`}
                 />
                 <ErrorMessage

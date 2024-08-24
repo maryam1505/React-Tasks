@@ -31,7 +31,7 @@ const UserList = () => {
   const deleteUser = async (id) => {
     try {
       await axios.delete(`http://localhost:5001/users/delete/${id}`);
-      setUsers(users.filter(user => user.id !== id));
+      setUsers(users.filter((user) => user.id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -109,46 +109,54 @@ const UserList = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr className="odd:bg-white align-middle odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                  <td key={user.id} className="px-6 py-4">
-                    {user.id}
-                  </td>
-                  <td className="px-6 py-4">
-                    <img
-                      src={`http://localhost:5001/uploads/${user.image}`}
-                      alt={user.lname}
-                      className="size-12 rounded-full"
-                    />
-                  </td>
-                  <td
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {user.fname}
-                  </td>
-                  <td className="px-6 py-4">{user.lname}</td>
-                  <td className="px-6 py-4">{user.guardian}</td>
-                  <td className="px-6 py-4">{formatDate(user.dob)}</td>
-                  <td className="px-6 py-4">{user.age}</td>
-                  <td className="px-6 py-4">{user.designation}</td>
-                  <td className="px-6 py-4">{user.department}</td>
-                  <td className="px-6 py-4">{user.country}</td>
-                  <td className="px-6 py-4">{user.city}</td>
-                  <td className="px-6 py-4">{user.address}</td>
-                  <td className="px-6 py-4">
-                    <div className="flex gap-2 font-medium hover:underline">
-                      <Link to={`/edit_user/${user.id}`}>
-                        <FaEdit className="text-blue-600 dark:text-blue-500 cursor-pointer" />
-                      </Link>
-                      <FaTrash
-                        className="text-red-600 dark:text-red-500 cursor-pointer"
-                        onClick={() => confirmDelete(user.id)}
+              {users.length > 0 ? (
+                users.map((user) => (
+                  <tr className="odd:bg-white align-middle odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <td key={user.id} className="px-6 py-4">
+                      {user.id}
+                    </td>
+                    <td className="px-6 py-4">
+                      <img
+                        src={`http://localhost:5001/uploads/${user.image}`}
+                        alt={user.lname}
+                        className="size-12 rounded-full"
                       />
-                    </div>
+                    </td>
+                    <td
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {user.fname}
+                    </td>
+                    <td className="px-6 py-4">{user.lname}</td>
+                    <td className="px-6 py-4">{user.guardian}</td>
+                    <td className="px-6 py-4">{formatDate(user.dob)}</td>
+                    <td className="px-6 py-4">{user.age}</td>
+                    <td className="px-6 py-4">{user.designation}</td>
+                    <td className="px-6 py-4">{user.department}</td>
+                    <td className="px-6 py-4">{user.country}</td>
+                    <td className="px-6 py-4">{user.city}</td>
+                    <td className="px-6 py-4">{user.address}</td>
+                    <td className="px-6 py-4">
+                      <div className="flex gap-2 font-medium hover:underline">
+                        <Link to={`/edit_user/${user.id}`}>
+                          <FaEdit className="text-blue-600 dark:text-blue-500 cursor-pointer" />
+                        </Link>
+                        <FaTrash
+                          className="text-red-600 dark:text-red-500 cursor-pointer"
+                          onClick={() => confirmDelete(user.id)}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr className="odd:bg-white align-middle odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                  <td colSpan="13" className="px-6 py-4 text-center">
+                    No users found yet.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

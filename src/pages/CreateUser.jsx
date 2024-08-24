@@ -5,10 +5,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const CreateUser = () => {
+  /* To navigate after submission */
   const navigate = useNavigate();
-  /* Form Validation using Formik and Yup */
+  /* profile pic */
   const [profilePic, setProfilePic] = useState(null);
-
+  
+  /* Form Validation using Formik and Yup */
   const formik = useFormik({
     initialValues: {
       profilePic: null,
@@ -62,10 +64,6 @@ const CreateUser = () => {
       formData.append("country", values.country);
       formData.append("city", values.city);
       formData.append("address", values.address);
-
-      // for (const [key, value] of formData.entries()) {
-      //   console.log(`${key}:`, value);
-      // }
 
       try {
         const response = await axios.post(
@@ -150,11 +148,11 @@ const CreateUser = () => {
                 Change
               </button>
 
-              {formik.touched.profilePic && formik.errors.profilePic ? (
+              {formik.touched.profilePic && formik.errors.profilePic && (
                 <div className="text-red-600 text-sm">
                   {formik.errors.profilePic}
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
 
@@ -178,11 +176,11 @@ const CreateUser = () => {
                 }`}
                 {...formik.getFieldProps("firstName")}
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
+              {formik.touched.firstName && formik.errors.firstName && (
                 <div className="text-red-600 text-sm">
                   {formik.errors.firstName}
                 </div>
-              ) : null}
+              )}
             </div>
             <div>
               <label

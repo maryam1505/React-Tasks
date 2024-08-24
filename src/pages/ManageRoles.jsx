@@ -77,7 +77,7 @@ const ManageRoles = () => {
               </tr>
             </thead>
             <tbody>
-              {roles.map((role) => (
+              {roles.length > 0 ? roles.map((role) => (
                 <tr key={role.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                   <td className="px-6 py-4">{role.id}</td>
                   <th
@@ -95,7 +95,13 @@ const ManageRoles = () => {
                     </div>
                   </td>
                 </tr>
-              ))}
+              )) : (
+                <tr className="odd:bg-white align-middle odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                  <td colSpan="4" className="px-6 py-4 text-center">
+                    No roles created yet.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

@@ -149,6 +149,7 @@ const EditUser = () => {
       reader.readAsDataURL(file);
     }
   };
+  
   return (
     <div className="w-full">
       <div className="min-w-36 mx-auto max-w-[40rem] my-9 bg-slate-900 bg-opacity-5 dark:bg-opacity-100 rounded-lg py-3 px-10">
